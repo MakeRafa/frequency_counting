@@ -13,7 +13,7 @@ class HashTable:
   # This method creates an array (list) of a given size and populates each of its elements with a LinkedList object.
 
   def create_arr(self, size):
-     
+    
     arr = []
 
     for i in range(size):
@@ -32,9 +32,16 @@ class HashTable:
   def hash_func(self, key):
     # example Joi gave for length of each word
     # Change hash function
-    word_length = len(key)
-    index = word_length % self.size
+    # word_length = len(key)
+    first_letter = key[0]
+
+    dist_from_A = ord(first_letter) - ord('a')
+
+    index = dist_from_A % self.size
     return index
+
+
+
 
 
   # 3️⃣ TODO: Complete the insert method.
