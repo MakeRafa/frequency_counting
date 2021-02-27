@@ -32,16 +32,18 @@ class LinkedList:
     else:
       return -1
 
-  def update(self, item):
+  def update(self, key, value):
 
-    
+    found = False
+    counter = 0
     curr_node = self.head
 
-    while curr_node.next != None:
+    while curr_node != None and not found:
       if curr_node.data[0] == key:
         curr_node.data = (curr_node[0], curr_node[1]+ 1)
       else:
         curr_node = curr_node.next
+        counter += 1
 
 
   def length(self):

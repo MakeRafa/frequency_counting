@@ -6,7 +6,6 @@ class HashTable:
     self.size = size
     self.arr = self.create_arr(size)
 
-
   # 1️⃣ TODO: Complete the create_arr method.
 
   # Each element of the hash table (arr) is a linked list.
@@ -22,46 +21,47 @@ class HashTable:
 
     return arr
 
-
-
-
   # 2️⃣ TODO: Create your own hash function.
 
   # Hash functions are a function that turns each of these keys into an index value that we can use to decide where in our list each key:value pair should be stored. 
 
   def hash_func(self, key):
-    # example Joi gave for length of each word
-    # Change hash function
-    # word_length = len(key)
     first_letter = key[0]
 
     dist_from_A = ord(first_letter) - ord('a')
 
     index = dist_from_A % self.size
     return index
-
-
-
-
+    # example Joi gave for length of each word
+    # Change hash function
+    # word_length = len(key)
 
   # 3️⃣ TODO: Complete the insert method.
 
-  # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
+  # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. 
+  # When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
   def insert(self, key, value):
 
-    new_tuple = (key, value)
+    key_hash = self.hash_func(key)
 
-    bucket_index = self.hash_func(key)
+    if self.arr[key_hash] == None:
+      self.arr[key_hash] = (key, value)
 
-    ll = self.arr[bucket_index]
-    # only append if this key in not in the table
-    # ll_index = ll.find(key)
+      return key_hash
 
-    if ll.find(key) == -1:
-      ll.append(new_tuple)
-    else:
-      ll.update(key, value)
+    # new_tuple = (key, value)
+
+    # bucket_index = self.hash_func(key)
+
+    # ll = self.arr[bucket_index]
+    # # only append if this key in not in the table
+    # # ll_index = ll.find(key)
+
+    # if ll.find(key) == -1:
+    #   ll.append(new_tuple)
+    # else:
+    #   ll.update(key, value)
       
 
     # if the word is in the table value + 1 

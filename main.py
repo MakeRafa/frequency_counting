@@ -77,4 +77,4 @@ frequency_counter.print_key_values()
 
 
 # THIS IS TO ONLY BE USED FOR TESTING. THIS IS NOT A SOLUTION.
-# test_counter(words_in_file)
+test_counter(words_in_file)

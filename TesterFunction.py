@@ -1,5 +1,5 @@
 
-def test_counter( lst):
+def test_counter(lst):
 
   words = {}
   for word in lst:
