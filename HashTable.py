@@ -47,9 +47,23 @@ class HashTable:
 
     if self.arr[key_hash] == None:
       self.arr[key_hash] = (key, value)
-
       return key_hash
+    # else if there is some collision 
+    # else:
+    #   ptr = (key_hash + 1) % self.size
+    #   while ptr != key_hash:
+        
+    #     if self.arr[ptr] == None:
+    #       self.arr[ptr] = (key,value)
+    #       return ptr
 
+    #     else:
+    #       ptr = (ptr + 1) % self.size
+    #   return key_hash
+      
+
+    
+# old insert function was not working
     # new_tuple = (key, value)
 
     # bucket_index = self.hash_func(key)
