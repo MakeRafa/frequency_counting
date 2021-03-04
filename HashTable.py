@@ -26,11 +26,13 @@ class HashTable:
   # Hash functions are a function that turns each of these keys into an index value that we can use to decide where in our list each key:value pair should be stored. 
 
   def hash_func(self, key):
-    first_letter = key[0]
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    count = 0
 
-    dist_from_A = ord(first_letter) - ord('a')
-
-    index = dist_from_A % self.size
+    for vowel in vowels:
+      for vowel in key:
+        count += 1
+    index = count % self.size
     return index
     # example Joi gave for length of each word
     # Change hash function
@@ -48,18 +50,19 @@ class HashTable:
     if self.arr[key_hash] == None:
       self.arr[key_hash] = (key, value)
       return key_hash
-    # else if there is some collision 
-    # else:
-    #   ptr = (key_hash + 1) % self.size
-    #   while ptr != key_hash:
-        
-    #     if self.arr[ptr] == None:
-    #       self.arr[ptr] = (key,value)
-    #       return ptr
 
-    #     else:
-    #       ptr = (ptr + 1) % self.size
-    #   return key_hash
+    # else if there is some collision 
+    else:
+      ptr = (key_hash + 1) % self.size
+      while ptr != key_hash:
+        
+        if self.arr[ptr] == None:
+          self.arr[ptr] = (key,value)
+          return ptr
+
+        else:
+          ptr = (ptr + 1) % self.size
+      return key_hash
       
 
     

@@ -67,5 +67,5 @@ class LinkedList:
     else:
       for i in range(self.length()):
         # change below
-        print(f'Node {i}: {current.data}')
+        print(f'{current.data[0]}: {current.data}')
         current = current.next
